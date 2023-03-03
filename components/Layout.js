@@ -4,10 +4,10 @@ import Link from "next/dist/client/link";
 const Layout = ({ children }) => {
   return (
     <>
-      <div className="container mx-auto flex h-full flex-col p-4 sm:p-8">
+      <div className="container mx-auto flex h-[100vh] flex-col p-4 sm:p-8">
         <div className="flex-auto">{children}</div>
         {/* Nav bar for mobile */}
-        <nav className="absolute bottom-0 w-full block">
+        {/* <nav className="absolute bottom-0 w-full block">
           <ul className="flex flex-row justify-around w-full">
             <li>
               <Link href="/feed">Feed</Link>
@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
               <Link href="/profile">Profile</Link>
             </li>
           </ul>
-        </nav>
+        </nav> */}
       </div>
     </>
   );
