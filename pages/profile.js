@@ -1,10 +1,43 @@
+import { useRouter } from "next/router";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
 import Image from "next/image";
 import Link from "next/link";
+
+import fireBaseConfig from "../firebaseConfig";
+
 import Nav from "../components/Nav";
 import TopBar from "../components/TopBar";
 
+/* Boilerplate code for database connection */
+/* export async function getServerSideProps() {
+  const app = initializeApp(fireBaseConfig);
+  const db = getFirestore(app);
+
+  const certificates = await getCertificates();
+
+  async function getCertificates() {
+    const certificatesCollection = collection(db, "certificates");
+    const certificatesSnapshot = await getDocs(certificatesCollection);
+    const certificatesList = certificatesSnapshot.docs.map((doc) => doc.data());
+    return certificatesList;
+  }
+
+  certificates.sort((a, b) => {
+    return new Date(b.date) - new Date(a.date);
+  });
+
+  return {
+    props: {
+      certificates,
+    },
+  };
+} */
+
 export default function Home() {
+  // placeholder name
   let name = "John Doe";
+  // placeholder certificates
   let certificates = [
     {
       name: "Certificate 1",
