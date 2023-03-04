@@ -14,7 +14,7 @@ export default function Home() {
             <p className="text-slate-500 mb-2">Email:</p>
             <input
               id="emailInput"
-              className="border-slate-400 border-2 rounded-sm w-full p-2"
+              className="border-slate-400 border-2 rounded-md w-full p-2"
               placeholder="Your email"
             ></input>
           </div>
@@ -22,11 +22,11 @@ export default function Home() {
             <p className="text-slate-500 mb-2">Password</p>
             <input
               id="passwordInput"
-              className="border-slate-400 border-2 rounded-sm w-full p-2"
+              className="border-slate-400 border-2 rounded-md w-full p-2"
               placeholder="Your password"
             ></input>
           </div>
-          <button className="bg-slate-500 mb-4 text-white rounded-sm p-2 w-full">
+          <button className="bg-slate-500 mb-4 text-white rounded-md p-2 w-full">
             Login
           </button>
         </div>
