@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import TopBar from "@/components/TopBar";
 import Image from "next/image";
+import EditIcon from "@/icons/EditIcon";
 
 export default function Home() {
   // placeholder certificate
@@ -36,12 +37,12 @@ export default function Home() {
           <p className="text-[#0070ad] text-2xl font-semibold">Eind datum</p>
           <p>{certificate.endDate}</p>
         </div>
-        <div className="flex flex-col items-center mb-4">
+        <div className="flex flex-col items-center mb-8">
           <p className="text-[#0070ad] text-2xl font-semibold">Status</p>
           <p>{certificate.state}</p>
         </div>
-        <button className="bg-[#0070ad] mb-4 text-white rounded-md p-2 w-full">
-          Login
+        <button className="bg-[#0070ad] text-white rounded-md p-2 w-full">
+          Modify{" "}
         </button>
       </div>
 
