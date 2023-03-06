@@ -1,9 +1,39 @@
+import { useRouter } from "next/router";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
+import fireBaseConfig from "../firebaseConfig";
 import Nav from "@/components/Nav";
 import TopBar from "@/components/TopBar";
 import Image from "next/image";
 import EditIcon from "@/icons/EditIcon";
 
+/* Boilerplate code for database connection to get certificate */
+/* TODO: this needs to be optimized to only get one certificate in the request instead of a list */
+/* export async function getServerSideProps() {
+  const app = initializeApp(fireBaseConfig);
+  const db = getFirestore(app);
+
+  let certificate = await getCertificate(id);
+
+  async function getCertificate(id) {
+    const certificatesCollection = collection(db, "certificates");
+    const certificatesSnapshot = await getDocs(certificatesCollection);
+    const certificatesList = certificatesSnapshot.docs.map((doc) => doc.data());
+    return certificatesList.find((certificate) => certificate.id === id);
+  }
+
+  return {
+    props: {
+      certificate,
+    },
+  };
+} */
+
 export default function Home() {
+  /* const router = useRouter();
+  const id = router.query.id;
+  const certificate = props.certificate; */
+
   // placeholder certificate
   let certificate = {
     name: "Certificate 1",
