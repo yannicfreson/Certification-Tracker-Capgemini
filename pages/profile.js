@@ -42,38 +42,47 @@ export default function Home() {
     {
       name: "Certificate 1",
       version: "1.0",
-      image: "https://placehold.co/400",
+      vendor: "Ordina",
+      startDate: "2021-01-01",
+      endDate: "2021-12-31",
       state: "valid",
+      image: "https://placehold.co/400",
     },
     {
       name: "Certificate 2",
       version: "1.0",
+      vendor: "Cognizant",
+      startDate: "2021-01-01",
+      endDate: "2021-12-31",
+      state: "invalid",
       image: "https://placehold.co/400",
-      state: "valid",
     },
     {
       name: "Certificate 3",
       version: "1.0",
+      vendor: "Capgemini",
+      startDate: "2021-01-01",
+      endDate: "2021-12-31",
+      state: "valid",
       image: "https://placehold.co/400",
-      state: "expired",
     },
     {
       name: "Certificate 4",
       version: "1.0",
-      image: "https://placehold.co/400",
+      vendor: "Ordina",
+      startDate: "2021-01-01",
+      endDate: "2021-12-31",
       state: "valid",
+      image: "https://placehold.co/400",
     },
     {
       name: "Certificate 5",
       version: "1.0",
+      vendor: "Cognizant",
+      startDate: "2021-01-01",
+      endDate: "2021-12-31",
+      state: "invalid",
       image: "https://placehold.co/400",
-      state: "valid",
-    },
-    {
-      name: "Certificate 6",
-      version: "1.0",
-      image: "https://placehold.co/400",
-      state: "valid",
     },
   ];
 
@@ -117,7 +126,7 @@ export default function Home() {
             <div className="w-full p-2 mb-4 bg-[#0070ad] rounded-lg text-white border-[#ff4754] border-l-8 shadow-md shadow-slate-500">
               <div className="flex justify-between flex-row rounded-sm overflow-hidden">
                 <div>
-                  <p>{certificate.name}</p>
+                  <p className="font-bold text-lg">{certificate.name}</p>
                   <p>{certificate.version}</p>
                 </div>
                 <div className="w-16 h-16 overflow-hidden rounded-md">
