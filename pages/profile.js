@@ -9,6 +9,10 @@ import fireBaseConfig from "../firebaseConfig";
 import Nav from "../components/Nav";
 import TopBar from "../components/TopBar";
 
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
 /* Boilerplate code for database connection */
 /* export async function getServerSideProps() {
   const app = initializeApp(fireBaseConfig);
@@ -109,33 +113,26 @@ export default function Home() {
           +
         </Link>
 
-        {certificates.map((certificate) =>
-          certificate.state == "valid" ? (
-            <div className="w-full p-2 mb-4 bg-[#0070ad] rounded-lg text-white border-[#8bc946] border-l-8 shadow-md shadow-slate-500">
-              <div className="flex justify-between flex-row rounded-sm overflow-hidden">
-                <div>
-                  <p className="font-bold text-lg">{certificate.name}</p>
-                  <p>{certificate.version}</p>
-                </div>
-                <div className="w-16 h-16 overflow-hidden rounded-md">
-                  <img src={certificate.image} />
-                </div>
+        {certificates.map((certificate) => (
+          <div
+            className={classNames(
+              "w-full p-2 mb-4 bg-[#0070ad] rounded-lg text-white border-l-8 shadow-md shadow-slate-500",
+              certificate.state === "valid"
+                ? "border-[#ff4754]"
+                : "border-[#8bc946]"
+            )}
+          >
+            <div className="flex justify-between flex-row rounded-sm overflow-hidden">
+              <div>
+                <p className="font-bold text-lg">{certificate.name}</p>
+                <p>{certificate.version}</p>
+              </div>
+              <div className="w-16 h-16 overflow-hidden rounded-md">
+                <img src={certificate.image} />
               </div>
             </div>
-          ) : (
-            <div className="w-full p-2 mb-4 bg-[#0070ad] rounded-lg text-white border-[#ff4754] border-l-8 shadow-md shadow-slate-500">
-              <div className="flex justify-between flex-row rounded-sm overflow-hidden">
-                <div>
-                  <p className="font-bold text-lg">{certificate.name}</p>
-                  <p>{certificate.version}</p>
-                </div>
-                <div className="w-16 h-16 overflow-hidden rounded-md">
-                  <img src={certificate.image} />
-                </div>
-              </div>
-            </div>
-          )
-        )}
+          </div>
+        ))}
       </div>
 
       <div className="fixed bottom-0 left-0 w-full px-4 pb-4 bg-white">
