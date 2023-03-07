@@ -5,13 +5,14 @@
 #### Step 1: Clone the repository
 
 #### Step 2: Install the dependencies
+Note: if you don't have Node.js installed, you can download it [here](https://nodejs.org/en/download/).
 
 ```bash
 # install the necessary dependencies
 npm i
 ```
 
-#### step 3: Set up the database connection
+#### Step 3: Set up the database connection
 
 To acces the database, you need to copy the **_`firebaseConfig.example.js`_** file and rename it to **_`firebaseConfig.js`_**. Then, you need to fill in the values with the ones from your Firebase project.
 **The** **_`firebaseConfig.js`_** **file is in the .gitignore but verify that you NEVER commit this**
