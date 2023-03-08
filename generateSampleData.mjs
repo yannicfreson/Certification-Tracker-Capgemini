@@ -5,7 +5,6 @@ import {
   collection,
   getDocs,
   doc,
-  setDoc,
   writeBatch,
 } from "firebase/firestore/lite";
 import * as dotenv from "dotenv";
