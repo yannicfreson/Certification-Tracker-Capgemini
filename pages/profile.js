@@ -4,91 +4,40 @@ import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
 import Image from "next/image";
 import Link from "next/link";
 
-import fireBaseConfig from "../firebaseConfig";
-
 import Nav from "../components/Nav";
 import TopBar from "../components/TopBar";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
-/* Boilerplate code for database connection */
-/* export async function getServerSideProps() {
-  const app = initializeApp(fireBaseConfig);
-  const db = getFirestore(app);
+export async function getServerSideProps() {
+  const db = getFirestore(
+    initializeApp({
+      apiKey: process.env.API_KEY,
+      authDomain: process.env.AUTH_DOMAIN,
+      projectId: process.env.PROJECT_ID,
+      storageBucket: process.env.STORAGE_BUCKET,
+      messagingSenderId: process.env.MESSAGING_SENDER_ID,
+      appId: process.env.APP_ID,
+    })
+  );
 
   const certificates = await getCertificates();
 
   async function getCertificates() {
-    const certificatesCollection = collection(db, "certificates");
-    const certificatesSnapshot = await getDocs(certificatesCollection);
+    const certificatesSnapshot = await getDocs(collection(db, "Certificate"));
     const certificatesList = certificatesSnapshot.docs.map((doc) => doc.data());
     return certificatesList;
   }
-
-  certificates.sort((a, b) => {
-    return new Date(b.date) - new Date(a.date);
-  });
 
   return {
     props: {
       certificates,
     },
   };
-} */
+}
 
-export default function Home() {
+export default function Home(props) {
   // placeholder name
   let name = "John Doe";
-  // placeholder certificates
-  let certificates = [
-    {
-      name: "Certificate 1",
-      version: "1.0",
-      vendor: "Ordina",
-      startDate: "2021-01-01",
-      endDate: "2021-12-31",
-      state: "valid",
-      image: "https://placehold.co/400",
-    },
-    {
-      name: "Certificate 2",
-      version: "1.0",
-      vendor: "Cognizant",
-      startDate: "2021-01-01",
-      endDate: "2021-12-31",
-      state: "invalid",
-      image: "https://placehold.co/400",
-    },
-    {
-      name: "Certificate 3",
-      version: "1.0",
-      vendor: "Capgemini",
-      startDate: "2021-01-01",
-      endDate: "2021-12-31",
-      state: "valid",
-      image: "https://placehold.co/400",
-    },
-    {
-      name: "Certificate 4",
-      version: "1.0",
-      vendor: "Ordina",
-      startDate: "2021-01-01",
-      endDate: "2021-12-31",
-      state: "valid",
-      image: "https://placehold.co/400",
-    },
-    {
-      name: "Certificate 5",
-      version: "1.0",
-      vendor: "Cognizant",
-      startDate: "2021-01-01",
-      endDate: "2021-12-31",
-      state: "invalid",
-      image: "https://placehold.co/400",
-    },
-  ];
+  let certificates = props.certificates;
 
   return (
     <div>
@@ -124,11 +73,13 @@ export default function Home() {
           >
             <div className="flex justify-between flex-row rounded-sm overflow-hidden">
               <div>
-                <p className="font-bold text-lg">{certificate.name}</p>
+                <p className="font-bold text-lg">
+                  {certificate.name.split("_").join(" ")}
+                </p>
                 <p>{certificate.version}</p>
               </div>
               <div className="w-16 h-16 overflow-hidden rounded-md">
-                <img src={certificate.image} />
+                <img src="https://placehold.co/400" />
               </div>
             </div>
           </div>
@@ -141,4 +92,8 @@ export default function Home() {
       </div>
     </div>
   );
+}
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
 }
