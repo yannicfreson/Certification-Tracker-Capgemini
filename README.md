@@ -31,6 +31,7 @@ Open **[http://localhost:3000](http://localhost:3000)** in your browser to see t
 
 #### Step 6: Generating sample data
 
+**Don't do this if there are enough records already**
 In the **_`generateSampleData.mjs`_** file, at the top, set WRITE to true, fill in the values for each collection and run the file with node.
 If you wish to see the data in the database after running the file, set READ to true as well.
 
