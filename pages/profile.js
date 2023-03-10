@@ -51,7 +51,7 @@ export default function Home(props) {
           <img src="https://placehold.co/400" />
         </div>
 
-        <p id="name" className="mb-4 text-2xl font-bold text-[#0070ad]">
+        <p id="name" className="mb-4 text-2xl font-bold text-capgemini-dark">
           {name}
         </p>
 
@@ -65,10 +65,10 @@ export default function Home(props) {
         {certificates.map((certificate) => (
           <div
             className={classNames(
-              "w-full p-2 mb-4 bg-[#0070ad] rounded-lg text-white border-l-8 shadow-md shadow-slate-500",
+              "w-full p-2 mb-4 bg-capgemini-dark rounded-lg text-white border-l-8 shadow-md shadow-slate-500",
               certificate.state === "valid"
-                ? "border-[#ff4754]"
-                : "border-[#8bc946]"
+                ? "border-capgemini-red"
+                : "border-capgemini-green"
             )}
           >
             <div className="flex justify-between flex-row rounded-sm overflow-hidden">

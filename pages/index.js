@@ -7,6 +7,7 @@ export default function Home() {
         <TopBar />
         <div className="w-full bg-slate-200 h-[0.1rem] mt-4"></div>
       </div>
+
       <div className="flex flex-col justify-center h-full">
         <img src="Capgemini_Logo.png" className="mb-4 mx-8"></img>
         <div id="loginForm">
@@ -26,7 +27,7 @@ export default function Home() {
               placeholder="Your password"
             ></input>
           </div>
-          <button className="bg-slate-500 mb-4 text-white rounded-md p-2 w-full">
+          <button className="bg-capgemini-dark mb-4 text-white rounded-md p-2 w-full">
             Login
           </button>
         </div>
